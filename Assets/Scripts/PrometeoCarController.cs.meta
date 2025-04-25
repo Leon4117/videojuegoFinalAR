@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: c0fefceefe666bb4682b272ec8c5bdd0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - frontLeftMesh: {instanceID: 0}
+  - frontLeftCollider: {instanceID: 0}
+  - frontRightMesh: {instanceID: 0}
+  - frontRightCollider: {instanceID: 0}
+  - rearLeftMesh: {instanceID: 0}
+  - rearLeftCollider: {instanceID: 0}
+  - rearRightMesh: {instanceID: 0}
+  - rearRightCollider: {instanceID: 0}
+  - RLWParticleSystem: {instanceID: 0}
+  - RRWParticleSystem: {instanceID: 0}
+  - RLWTireSkid: {instanceID: 0}
+  - RRWTireSkid: {instanceID: 0}
+  - impulseParticle: {instanceID: 0}
+  - throttleButton: {instanceID: 0}
+  - reverseButton: {instanceID: 0}
+  - turnRightButton: {instanceID: 0}
+  - turnLeftButton: {instanceID: 0}
+  - handbrakeButton: {instanceID: 0}
+  - ruidoCarroW: {fileID: 8300000, guid: b94eae181d716bc4980860be77051480, type: 3}
+  - ruidoCarroS: {fileID: 8300000, guid: 383f4231c8d4c0b46802974b7d5e014e, type: 3}
+  - ruidoCarroA: {fileID: 8300000, guid: 198beec9810fad0489ee8e8e5117ddbf, type: 3}
+  - ruidoCarroD: {fileID: 8300000, guid: ad8e0a9484cfdd041ab0291a70840d1c, type: 3}
+  - ruidoCarroES: {fileID: 8300000, guid: 383f4231c8d4c0b46802974b7d5e014e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
