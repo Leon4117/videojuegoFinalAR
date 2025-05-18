@@ -8,11 +8,11 @@ public class SpawnManager : MonoBehaviour {
     private float startDelay = 2.0f;
     private float spawnInterval = 2.0f;
     public GameObject[] obstaclePrefabs;
+    public GameObject[] powerUpPrefabs; // Array para los prefabs de power ups
     private float spawnPosX;
     private float spawnPosZ;
     private float y = 0.0f;
-    //float startDelay;
-    float repeatRate;
+    public float powerUpSpawnChance = 0.2f; // 20% de probabilidad de que aparezca un power up
     public static SpawnManager Instance;
     private Cronometer time;
     public bool isPlayStart = false;
@@ -52,12 +52,20 @@ public class SpawnManager : MonoBehaviour {
         float spawnPosX = Random.Range(xRange.x, xRange.y);
         float spawnPosZ = Random.Range(zRange.x, zRange.y);
 
-        return new Vector3(spawnPosX, y, spawnPosZ);
+        float spawnPosY = (powerUpPrefabs != null && powerUpPrefabs.Length > 0) ? 0.5f : y; // 0.5f es la altura recomendada
+        return new Vector3(spawnPosX, spawnPosY, spawnPosZ);
     }
 
     public void SpawnObstacles(){
         if (isPlayStart && !time.isGameOver)
         {
+            // Primero decidimos si spawnear un power up en lugar de un obstáculo
+            if (ShouldSpawnPowerUp())
+            {
+                SpawnPowerUp();
+                return;
+            }
+
             if (obstaclePrefabs.Length == 0){
                 Debug.LogError("No hay prefabs de obstáculos asignados.");
                 return;
@@ -65,10 +73,23 @@ public class SpawnManager : MonoBehaviour {
 
             int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
             Vector3 spawnPosition = GenerateSpawnPosition(Random.Range(1, 8));
-            //Debug.Log($"Generando obstáculo {obstacleIndex} en posición {spawnPosition}.");
-
             Instantiate(obstaclePrefabs[obstacleIndex], spawnPosition, obstaclePrefabs[obstacleIndex].transform.rotation);
         }
+    }
+
+    private bool ShouldSpawnPowerUp()
+    {
+        // Verificamos que haya power ups configurados y que el random cumpla con la probabilidad
+        return powerUpPrefabs != null && 
+               powerUpPrefabs.Length > 0 && 
+               Random.value <= powerUpSpawnChance;
+    }
+
+    private void SpawnPowerUp()
+    {
+        int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
+        Vector3 spawnPosition = GenerateSpawnPosition(Random.Range(1, 8));
+        Instantiate(powerUpPrefabs[powerUpIndex], spawnPosition, powerUpPrefabs[powerUpIndex].transform.rotation);
     }
 
     private void Awake(){

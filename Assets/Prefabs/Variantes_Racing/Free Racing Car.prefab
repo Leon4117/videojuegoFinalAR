@@ -523,7 +523,8 @@ MonoBehaviour:
   rearLeftCollider: {fileID: 3145262460232535540}
   rearRightMesh: {fileID: 4163942240364048118}
   rearRightCollider: {fileID: 1057494946909100755}
-  useEffects: 1
+  animateWheel: 0
+  useEffects: 0
   RLWParticleSystem: {fileID: 8164027052219131404}
   RRWParticleSystem: {fileID: 8164027052493756680}
   RLWTireSkid: {fileID: 3284039287982608839}
@@ -540,6 +541,12 @@ MonoBehaviour:
   isDrifting: 0
   isTractionLocked: 0
   turboForce: 500
+  isPlayStart: 0
+  ruidoCarroW: {fileID: 0}
+  ruidoCarroS: {fileID: 0}
+  ruidoCarroA: {fileID: 0}
+  ruidoCarroD: {fileID: 0}
+  ruidoCarroES: {fileID: 0}
 --- !u!1 &3962000127133956386
 GameObject:
   m_ObjectHideFlags: 0

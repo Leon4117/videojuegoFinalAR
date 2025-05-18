@@ -20,7 +20,15 @@ public class Puntaje : MonoBehaviour
     private CinemachineBrain cinematica;
     public bool gameEnd = false;
     private Cronometer time;
-    private void Start()
+    private bool isDoublePointsActive = false;
+    private float doublePointsTimer = 0f;
+    private float pointsMultiplier = 1f; // Multiplicador normal
+    private float basePoints = 0f; // Puntos base sin multiplicador
+    [Header("Feedback de Puntos Dobles")]
+    [SerializeField] private TextMeshProUGUI doublePointsFeedbackText;
+    [SerializeField] private float feedbackDuration = 2f;
+    private float feedbackTimer = 0f;
+    void Start()
     {
         time = FindObjectOfType<Cronometer>();
         cinematica = FindObjectOfType<CinemachineBrain>();
@@ -29,22 +37,79 @@ public class Puntaje : MonoBehaviour
 
     private void Update()
     {
-        //segundos
-        //puntos += Time.deltaTime; 
-        //modificar el text ,solo enteros
+        if (isDoublePointsActive)
+        {
+            doublePointsTimer -= Time.deltaTime;
+            if (doublePointsTimer <= 0)
+            {
+                isDoublePointsActive = false;
+                pointsMultiplier = 1f;
+            }
+        }
+
+        // Manejar el feedback visual
+        if (feedbackTimer > 0)
+        {
+            feedbackTimer -= Time.deltaTime;
+            if (feedbackTimer <= 0 && doublePointsFeedbackText != null)
+            {
+                doublePointsFeedbackText.gameObject.SetActive(false);
+            }
+        }
+        
         if (time.isGameOver)
         {
             MostrarPuntajeFinal();
         }
     }
 
+   private void ShowFeedback(string message)
+    {
+        if (doublePointsFeedbackText != null)
+        {
+            // Activa el objeto padre primero si es necesario
+            if (!doublePointsFeedbackText.transform.parent.gameObject.activeSelf)
+            {
+                doublePointsFeedbackText.transform.parent.gameObject.SetActive(true);
+            }
+            
+            doublePointsFeedbackText.text = message;
+            doublePointsFeedbackText.gameObject.SetActive(true);
+            feedbackTimer = feedbackDuration;
+            
+            // Forzar la actualización visual
+            Canvas.ForceUpdateCanvases();
+        }
+        else
+        {
+            Debug.LogError("Feedback text no asignado!", this);
+        }
+    }
+
+    public void ActivateDoublePoints(float duration)
+    {
+        // Siempre duplicar los puntos actuales al recoger el power-up
+        for (int i = 0; i < puntos.Length; i++)
+        {
+            puntos[i] *= 2;
+        }
+        total *= 2;
+        puntajeVista.text = "Puntos: " + total.ToString();
+
+        // Activar o extender la duración de puntos dobles
+        isDoublePointsActive = true;
+        pointsMultiplier = 2f;
+        doublePointsTimer += duration; // Suma el tiempo extra
+        ShowFeedback("¡Puntos dobles!");
+    }
     //posibles metodos para agregar los puntos
     public void SumarPuntos(float puntosTotales, int categoria)
     {
         if (!time.isGameOver)
         {
-            puntos[categoria] += puntosTotales;
-            total += puntosTotales;
+            float puntosFinales = puntosTotales * pointsMultiplier;
+            puntos[categoria] += puntosFinales;
+            total += puntosFinales;
             puntajeVista.text = "Puntos: " + total.ToString();
         }
     }
