@@ -3,7 +3,20 @@ guid: f232d2bbd67fcb6408729c7e9f537239
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lazyGeneration: {fileID: 8300000, guid: b0f17b4ec9043f04f8163285b3d01b04, type: 3}
+  - alltheSmall: {fileID: 8300000, guid: 6a8ad78b2a2f33148891420ca941a58a, type: 3}
+  - american: {fileID: 8300000, guid: 8143cdd794e4d3c42af668275662e3bd, type: 3}
+  - divaVirtual: {fileID: 8300000, guid: 4d7422181dbc9d54e94e19c27c38c58d, type: 3}
+  - itsGoing: {fileID: 8300000, guid: 5c570c12fae34cb43924ad5f0ed88dde, type: 3}
+  - numb: {fileID: 8300000, guid: 148cc4e588b223e4f9b313955e943a74, type: 3}
+  - paranoid: {fileID: 8300000, guid: 218a857ed8b215949b3bae206968ef04, type: 3}
+  - savior: {fileID: 8300000, guid: e2d7739e99000e54499a6997c4b5092c, type: 3}
+  - tokyoDrift: {fileID: 8300000, guid: b13aca21de4e47246976139a1a71ff37, type: 3}
+  - cancionRusa: {fileID: 8300000, guid: c52ee2d22883eee49bb582802e50dffa, type: 3}
+  - menuMusic: {fileID: 8300000, guid: 884bae49c0617dd4da39430181252f33, type: 3}
+  - audioSource: {instanceID: 0}
+  - audioClip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
