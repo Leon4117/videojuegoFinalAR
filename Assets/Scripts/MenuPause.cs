@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 public class MenuPause : MonoBehaviour
 {
     //variables de objetos
     [SerializeField] private GameObject buttonPause;
     [SerializeField] private GameObject menuPause;
     [SerializeField] private GameObject menuPuntos;
+    [SerializeField] private GameObject buttonResume;
     //para boton de teclado 
     private bool gamePause = false;
 
@@ -23,23 +26,29 @@ public class MenuPause : MonoBehaviour
             }
         }
     }
-    public void Pause() { 
-        //para que el tiempo en el juego se detenga
+    public void Pause()
+    {
         Time.timeScale = 0f;
-        //desactivar boton pausa
         buttonPause.SetActive(false);
-        //activar menu
         menuPause.SetActive(true);
         gamePause = true;
         Musica.Instance.PausarMusic();
+
+        // Seleccionar automáticamente el botón Resume
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(buttonResume);
+
         Debug.Log("Pausaaaaa");
     }
+
     public void Resume() {
         Time.timeScale = 1f;
         //activar pausa
         buttonPause.SetActive(true);
         // descativar menu
         menuPause.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(buttonPause);
         gamePause = false;
         Musica.Instance.ReanudarMusic();
         Debug.Log("Resumen");
