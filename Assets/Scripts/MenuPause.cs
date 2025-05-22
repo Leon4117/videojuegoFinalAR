@@ -12,11 +12,11 @@ public class MenuPause : MonoBehaviour
     [SerializeField] private GameObject menuPuntos;
     [SerializeField] private GameObject buttonResume;
     //para boton de teclado 
-    private bool gamePause = false;
+    public bool gamePause = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        /* (Input.GetKeyDown(KeyCode.Escape)) {
             if (gamePause)
             {
                 Resume();
@@ -24,7 +24,7 @@ public class MenuPause : MonoBehaviour
             else { 
                 Pause();
             }
-        }
+        }*/
     }
     public void Pause()
     {
