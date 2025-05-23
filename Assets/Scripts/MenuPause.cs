@@ -34,10 +34,6 @@ public class MenuPause : MonoBehaviour
         gamePause = true;
         Musica.Instance.PausarMusic();
 
-        // Seleccionar automáticamente el botón Resume
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(buttonResume);
-
         Debug.Log("Pausaaaaa");
     }
 
@@ -47,8 +43,6 @@ public class MenuPause : MonoBehaviour
         buttonPause.SetActive(true);
         // descativar menu
         menuPause.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(buttonPause);
         gamePause = false;
         Musica.Instance.ReanudarMusic();
         Debug.Log("Resumen");

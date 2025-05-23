@@ -51,8 +51,10 @@ public class PlayerInputHandler : MonoBehaviour
         _navigate.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
         _navigate.canceled += ctx => _moveInput = Vector2.zero;
 
-        _submitA.performed += ctx => _isSubmitPressed = true;
-        _submitA.canceled += ctx => _isSubmitPressed = false;
+        /*_submitA.performed += ctx => _isSubmitPressed = true;
+        _submitA.canceled += ctx => _isSubmitPressed = false;*/
+
+        _submitA.performed += ctx => OnSubmitPressed();
 
         /*_cancelB.performed += ctx => _isCancelPressed = true;
         _cancelB.canceled += ctx => _isCancelPressed = false;*/
@@ -109,6 +111,39 @@ public class PlayerInputHandler : MonoBehaviour
             Debug.LogWarning("No se encontró el script MenuPause en la escena.");
         }
     }
+
+    private void OnSubmitPressed()
+    {
+        Menu menu = FindObjectOfType<Menu>();
+        MenuPause pauseMenu = FindObjectOfType<MenuPause>();
+        MenuSeleccion menuSeleccion = FindObjectOfType<MenuSeleccion>();
+        MenuSeleccion3D menuSeleccion3D = FindObjectOfType<MenuSeleccion3D>();
+        if (menu)
+        {
+            menu.Play();
+        }
+        else
+        {
+            if (pauseMenu)
+            {
+                pauseMenu.Resume();
+            }
+            else
+            {
+                if (menuSeleccion)
+                {
+                    menuSeleccion.IniciarJuego();
+                } 
+                else
+                {
+                    menuSeleccion3D.IniciarJuego();
+                } 
+
+            }
+        }
+    }
+
+
 
     private void OnExitPressed()
     {
