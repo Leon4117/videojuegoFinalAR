@@ -128,7 +128,7 @@ public class PlayerInputHandler : MonoBehaviour
             {
                 pauseMenu.Resume();
             }
-            else
+            /*else
             {
                 if (menuSeleccion)
                 {
@@ -139,7 +139,7 @@ public class PlayerInputHandler : MonoBehaviour
                     menuSeleccion3D.IniciarJuego();
                 } 
 
-            }
+            }*/
         }
     }
 
