@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 public class MenuPause : MonoBehaviour
 {
     //variables de objetos
     [SerializeField] private GameObject buttonPause;
     [SerializeField] private GameObject menuPause;
     [SerializeField] private GameObject menuPuntos;
+    [SerializeField] private GameObject buttonResume;
     //para boton de teclado 
-    private bool gamePause = false;
+    public bool gamePause = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        /* (Input.GetKeyDown(KeyCode.Escape)) {
             if (gamePause)
             {
                 Resume();
@@ -21,19 +24,19 @@ public class MenuPause : MonoBehaviour
             else { 
                 Pause();
             }
-        }
+        }*/
     }
-    public void Pause() { 
-        //para que el tiempo en el juego se detenga
+    public void Pause()
+    {
         Time.timeScale = 0f;
-        //desactivar boton pausa
         buttonPause.SetActive(false);
-        //activar menu
         menuPause.SetActive(true);
         gamePause = true;
         Musica.Instance.PausarMusic();
+
         Debug.Log("Pausaaaaa");
     }
+
     public void Resume() {
         Time.timeScale = 1f;
         //activar pausa
