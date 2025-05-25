@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7474e289aa40024baf73d7a18ebba39, type: 3}
   m_Name: CarGray
   m_EditorClassIdentifier: 
-  carroPosible: {fileID: 7282772008711335601, guid: 4d1624804e8167f479ab63c5302ff1d5, type: 3}
+  carroPosible: {fileID: 9041432283490599144, guid: e512af360c778524589ab636b3cf092c, type: 3}
   imagen: {fileID: 21300000, guid: 270fa8349a00dc540bca9b38082eb0c6, type: 3}
   nombre: Camaro

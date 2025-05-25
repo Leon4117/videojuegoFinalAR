@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7474e289aa40024baf73d7a18ebba39, type: 3}
   m_Name: Sci-Fi
   m_EditorClassIdentifier: 
-  carroPosible: {fileID: 8378838160970735307, guid: 9205134f0e6e3d7469f2d87a9097cff5, type: 3}
+  carroPosible: {fileID: 5032616406829056208, guid: a0952a6a635d561459c38631752d0c3a, type: 3}
   imagen: {fileID: 21300000, guid: 426980d52971aac4a9d97b303184a720, type: 3}
   nombre: Sci-Fi

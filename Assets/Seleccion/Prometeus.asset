@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7474e289aa40024baf73d7a18ebba39, type: 3}
   m_Name: Prometeus
   m_EditorClassIdentifier: 
-  carroPosible: {fileID: 2983355129230764145, guid: fcf574e60741f7f45b7a0b2769d7c059, type: 3}
+  carroPosible: {fileID: 3796921279050731854, guid: cba4c4bc279b54740b390b81ec1904a1, type: 3}
   imagen: {fileID: 21300000, guid: 6642cdfb28d6f6344b76d84aa861cc6b, type: 3}
   nombre: Prometheus
