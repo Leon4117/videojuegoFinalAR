@@ -18882,12 +18882,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 135003539346080751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d757799f3531e443967d3c7ec17b514, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b27cbf2024b56a4c8406a6753eb3d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
   rotacionVelocidad: 100
-  volante3D: {fileID: 135003538617164420}
+  volante3D: {fileID: 0}
   anguloMaximoVolante: 450
 --- !u!54 &-8815872553419447520
 Rigidbody:
